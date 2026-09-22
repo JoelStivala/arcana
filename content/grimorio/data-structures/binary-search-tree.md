@@ -149,8 +149,8 @@ Los BST pueden implementarse con persistencia, permitiendo conservar versiones a
 ## 6. Referencias y recursos
 Libros de Referencia 
 
-- Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2001). [[COR2011]] Chapter 12 - Introduction to algorithms. MIT Press; McGraw-Hill 
-- Sedgewick, R., & Wayne, K. (2011). [[SED2011]] Algorithms. Addison Wesley. 
+- [[COR2011]] Chapter 12 - Introduction to algorithms. 
+- [[DRO1995]] Chapter 7 - Binary Search Trees. 
 
 Artículos 
 - [balanced binary tree ](https://xlinux.nist.gov/dads/HTML/balancedbitr.html)
