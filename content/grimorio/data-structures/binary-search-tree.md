@@ -27,7 +27,7 @@ En los árboles binarios de búsqueda, existe el concepto de balance, decimos qu
 Por otro lado, un árbol desbalanceado es aquel en el que los elementos quedan más concentrados en un lado del árbol, lo que hace que la estructura utilizada sea menos eficiente. 
 
 
-![[binary-search-tree-unbalanced.svg|binary-search-tree.svg|294]]
+![[binary-search-tree-unbalanced.svg]]
 
 Ejemplo de un arbol completamente desbalanceado.
 ## 2. Operaciones y complejidad
@@ -40,11 +40,11 @@ Ejemplo de un arbol completamente desbalanceado.
 - Delete (Eliminación): Es la operación más compleja. Se divide en tres escenarios: eliminar un nodo hoja (se borra directamente), un nodo con un solo hijo (el hijo reemplaza al nodo eliminado), o un nodo con dos hijos (requiere buscar el sucesor in-order para reemplazar el valor y eliminar el nodo original). 
 
 ### Complejidad
-- Tiempo Promedio: Para las operaciones principales el costo es O (log n), asumiendo un árbol razonablemente balanceado. 
+- Tiempo Promedio: Para las operaciones principales el costo es $O(\log n)$, asumiendo un árbol razonablemente balanceado. 
 
-- Tiempo Peor Caso: El costo se dispara a O (n). Esto sucede si los elementos se insertan ya ordenados, haciendo que el árbol degenere en una lista enlazada unidireccional. 
+- Tiempo Peor Caso: El costo se dispara a $O(n)$. Esto sucede si los elementos se insertan ya ordenados, haciendo que el árbol degenere en una lista enlazada unidireccional. 
 
-- Espacio: Su complejidad espacial es O (n) para almacenar los datos. Adicionalmente, el espacio auxiliar es O (h) (donde “h” es la altura del árbol) debido a la memoria requerida por la pila de llamadas en implementaciones recursivas. 
+- Espacio: Su complejidad espacial es $O(n)$ para almacenar los datos. Adicionalmente, el espacio auxiliar es $O(h)$ (donde “h” es la altura del árbol) debido a la memoria requerida por la pila de llamadas en implementaciones recursivas. 
 
 ### Detalles operativos
 - Casos Especiales: Estructura vacía o llena: Frente a un árbol vacío, las operaciones de búsqueda y eliminación deben manejarse como casos base que retornan un valor nulo, mientras que la primera inserción inicializa el nodo raíz. Por otro lado, al ser una estructura de asignación dinámica, un BST no posee un estado intrínseco de "estructura llena"; su límite de tamaño está condicionado exclusivamente por la memoria disponible en el sistema. 
@@ -114,19 +114,19 @@ arbol.insertar(10)
 Aplica naturalmente cuando se necesita mantener datos ordenados mientras se realizan búsquedas, inserciones y eliminaciones dinámicas. Es ideal para efectuar recorridos in-order, consultas por rango y encontrar elementos cercanos (el inmediatamente mayor o menor).
 
 ### Cuándo NO usarlo
- Es contraproducente si solo importa buscar claves exactas y el orden es irrelevante; en ese escenario, una tabla hash (O(1)) es muy superior. Tampoco es adecuado si los datos tienden a desbalancear el árbol (por ejemplo, si ingresan ya ordenados), degradando el rendimiento de búsqueda a O(n), ni para indexación en disco.
+ Es contraproducente si solo importa buscar claves exactas y el orden es irrelevante; en ese escenario, una tabla hash ($O(1)$) es muy superior. Tampoco es adecuado si los datos tienden a desbalancear el árbol (por ejemplo, si ingresan ya ordenados), degradando el rendimiento de búsqueda a $O(n)$, ni para indexación en disco.
 
 ### Comparaciones
-- Vs. [[hash table]]: El BST permite obtener rangos y mantener el orden natural; la tabla hash gana en búsquedas exactas al promediar O(1). 
+- Vs. [[hash table]]: El BST permite obtener rangos y mantener el orden natural; la tabla hash gana en búsquedas exactas al promediar $O(1)$. 
 
-- Vs. [[linked list]]: Un BST busca en O(log n), mientras que las listas exigen recorrer todos los elementos en O(n). 
+- Vs. [[linked list]]: Un BST busca en $O(\log n)$, mientras que las listas exigen recorrer todos los elementos en $O(n)$. 
 
 - Vs. AVL / B-Tree: El BST simple prioriza una implementación en memoria sin sobrecarga; el AVL se usa para garantizar autoequilibrio (O(log n) siempre) y los B-Tree/B+Tree son la solución correcta para bases de datos.
 
 ### Ventajas / desventajas
 Ventajas: Mantiene los datos ordenados naturalmente, facilitando las consultas de rango, extracciones de mínimos/máximos y recorridos ascendentes. 
 
-Desventajas: Su rendimiento se desploma a O(n) si se desbalancea. Además, la operación de eliminación es compleja por la reasignación de punteros.
+Desventajas: Su rendimiento se desploma a $O(n)$ si se desbalancea. Además, la operación de eliminación es compleja por la reasignación de punteros.
 
 ### Señales de reconocimiento
 Pistas en un problema: “Mantener elementos ordenados”, “Obtener los valores entre X e Y”, “Encontrar el valor inmediatamente mayor/menor a X”, o “Mostrar de menor a mayor”.
@@ -134,11 +134,11 @@ Pistas en un problema: “Mantener elementos ordenados”, “Obtener los valore
 ## 5. Relaciones y extensiones
 
 ### Variantes
-- Árbol AVL: extensión auto-balanceada del BST que utiliza rotaciones para mantener una altura eficiente y garantizar operaciones de búsqueda, inserción y eliminación en O (log⁡ n). 
+- Árbol AVL: extensión auto-balanceada del BST que utiliza rotaciones para mantener una altura eficiente y garantizar operaciones de búsqueda, inserción y eliminación en $O(\log⁡ n)$. 
 
 - Árbol rojinegro (Red-Black Tree): variante auto-balanceada que incorpora colores y reglas adicionales para controlar la altura del árbol. 
 
-- Árbol biselado (Splay Tree): variante autoajustable del BST que reorganiza sus nodos mediante rotaciones cada vez que se accede a un elemento. Su objetivo es favorecer los accesos posteriores a elementos consultados frecuentemente. Sus operaciones tienen un costo de O (log⁡ n) amortizado. 
+- Árbol biselado (Splay Tree): variante autoajustable del BST que reorganiza sus nodos mediante rotaciones cada vez que se accede a un elemento. Su objetivo es favorecer los accesos posteriores a elementos consultados frecuentemente. Sus operaciones tienen un costo de $O(\log⁡ n)$ amortizado. 
 
 ### Relación con otras estructuras
 El BST es una estructura jerárquica que organiza elementos mediante comparaciones entre claves. Se relaciona con los árboles balanceados, que conservan la misma idea de búsqueda ordenada, y con los árboles B, que permiten múltiples hijos por nodo y son utilizados en sistemas de almacenamiento e indexación. 
