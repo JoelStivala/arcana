@@ -18,7 +18,7 @@ Es una estructura de datos jerárquica formada por un conjunto de nodos, donde e
 ### Representación
 Internamente, cada nodo contiene un valor y referencias a sus hijos izquierdo y derecho. Cuando un nodo no tiene alguno de sus hijos, esa referencia es nula. 
 
-![[binary-search-tree.svg]]
+![[binary-search-tree.svg|530]]
 
 Representación de un árbol binario.
 
@@ -27,7 +27,8 @@ En los árboles binarios de búsqueda, existe el concepto de balance, decimos qu
 Por otro lado, un árbol desbalanceado es aquel en el que los elementos quedan más concentrados en un lado del árbol, lo que hace que la estructura utilizada sea menos eficiente. 
 
 
-![[binary-search-tree-unbalanced.svg]]
+![[binary-search-tree-unbalanced.svg|502]]
+
 
 Ejemplo de un arbol completamente desbalanceado.
 ## 2. Operaciones y complejidad
@@ -108,6 +109,9 @@ arbol.insertar(3)
 arbol.insertar(10) 
 ```
 
+
+![[binary-search-tree-example.svg]]
+Ejemplo de como quedaría el árbol que fue realizado en la implementación de código
 ## 4. Uso y criterio
 
 ### Casos de uso
